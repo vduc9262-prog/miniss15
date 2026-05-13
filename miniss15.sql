@@ -223,6 +223,38 @@ END //
 delimiter ;
 
 
+-- khi có người comment 
+DELIMITER //
+
+CREATE TRIGGER tg_after_like_insert
+AFTER INSERT ON comment
+FOR EACH ROW
+BEGIN
+    UPDATE posts 
+    SET comment_count = comment_count + 1 
+    WHERE post_id = NEW.post_id;
+END //
+
+delimiter ;
+
+insert into likes(user_id,post_id)
+values(1,3);
+
+
+-- khi có người xóa comment 
+DELIMITER //
+
+CREATE TRIGGER tg_after_like_insert
+AFTER delete ON comment
+FOR EACH ROW
+BEGIN
+    UPDATE posts 
+    SET comment_count = comment_count - 1 
+    WHERE post_id = NEW.post_id;
+END //
+
+delimiter ;
+
 
 -- chức năng 4
 
