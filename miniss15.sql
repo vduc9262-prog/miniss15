@@ -226,7 +226,7 @@ delimiter ;
 -- khi có người comment 
 DELIMITER //
 
-CREATE TRIGGER tg_after_like_insert
+CREATE TRIGGER tg_after_comment_insert
 AFTER INSERT ON comment
 FOR EACH ROW
 BEGIN
@@ -244,7 +244,7 @@ values(1,3);
 -- khi có người xóa comment 
 DELIMITER //
 
-CREATE TRIGGER tg_after_like_insert
+CREATE TRIGGER tg_after_comment_insert
 AFTER delete ON comment
 FOR EACH ROW
 BEGIN
