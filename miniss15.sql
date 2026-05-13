@@ -190,6 +190,7 @@ call sp_add_user('thienduc','123','thienduc@gmail.com');
 
 
 --  chức năng 3 
+-- khi có người like bài viết 
 DELIMITER //
 
 CREATE TRIGGER tg_after_like_insert
@@ -207,6 +208,7 @@ insert into likes(user_id,post_id)
 values(1,3);
 
 
+-- khi có người unlike bài viết 
 DELIMITER //
 
 CREATE TRIGGER tg_after_like_insert
